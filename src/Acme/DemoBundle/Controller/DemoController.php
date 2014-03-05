@@ -53,4 +53,21 @@ class DemoController extends Controller
 
         return array('form' => $form->createView());
     }
+
+    /**
+     * @Template()
+     */
+    public function formAction()
+    {
+        $builderWithoutType = $this->createFormBuilder(null, array('data_class' => '\\Acme\\DemoBundle\\Entity\\Member'));
+        $builderWithoutType->add('password');
+
+        $builderWithType = $this->createFormBuilder(null, array('data_class' => '\\Acme\\DemoBundle\\Entity\\Member'));
+        $builderWithType->add('password', 'repeated');
+
+        return array(
+            'formWithoutType' => $builderWithoutType->getForm()->createView(),
+            'formWithType' => $builderWithType->getForm()->createView(),
+        );
+    }
 }
