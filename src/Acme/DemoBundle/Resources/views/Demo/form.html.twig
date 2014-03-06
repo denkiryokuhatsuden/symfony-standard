@@ -4,7 +4,10 @@
 <p>below is the form that no type was specified. maxlength attribute is present and its value is 128 as I defined in the entity annotation.</p>
 {{ form(formWithoutType)}}
 <hr>
-<p>and below is the one that specified as 'repeated'. no maxlength attributes are present.</p>
+<p>and below is the one that specified as <strike>'repeated'</strike>'password'. no maxlength attributes are present.</p>
 {{ form(formWithType) }}
+<hr>
+<p>and it occurs even when the type is manually set to 'text'. no maxlengths.</p>
+{{ form(formWithTextType) }}
 </body>
 </html>

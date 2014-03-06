@@ -63,11 +63,15 @@ class DemoController extends Controller
         $builderWithoutType->add('password');
 
         $builderWithType = $this->createFormBuilder(null, array('data_class' => '\\Acme\\DemoBundle\\Entity\\Member'));
-        $builderWithType->add('password', 'repeated');
+        $builderWithType->add('password', 'password');
+
+        $builderWithTextType = $this->createFormBuilder(null, array('data_class' => '\\Acme\\DemoBundle\\Entity\\Member'));
+        $builderWithTextType->add('password', 'text');
 
         return array(
             'formWithoutType' => $builderWithoutType->getForm()->createView(),
             'formWithType' => $builderWithType->getForm()->createView(),
+            'formWithTextType' => $builderWithTextType->getForm()->createView(),
         );
     }
 }
